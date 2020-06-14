@@ -1,13 +1,12 @@
 
 import React, {useState, useEffect} from 'react';
 import ResponsiveDrawer from './components/Layout.js'
-import MapContainer from './components/countryInfo/map'
 import './App.css'
 
 
 function App() {
   const [coun , setCount] =useState([])
-  const [num, setNum]= useState([])
+  const [load, setLoad]= useState(false)
   const requestOptions = {
     method: 'GET',
     redirect: 'follow'
@@ -18,17 +17,20 @@ function App() {
   .then(response => response.json())
   .then(result => {
     setCount(pre=> [...pre, result.Global])
-    console.log(result.Global)
+    setLoad(true)
+    // console.log(result.Global)
+    // console.log('count from app',coun[0]['NewDeaths'])
   })
   .catch(error => console.log('error', error));
-  }, num)
+  }, [])
+
+  // console.log('count from app',coun[0].NewDeaths)
   return (
     <div>
-      <ResponsiveDrawer summary={coun} />
+      <ResponsiveDrawer summary={coun.length ? coun:null} load={load} />
       <footer className='footer'>
         <p style={{textAlign:'center', zIndex:1220}}>created by muse </p>
       </footer>
-      {/* <MapContainer/> */}
     </div>
   );
 }

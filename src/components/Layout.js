@@ -16,6 +16,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import NotFound from './NotFound'
+import Country from '../components/country'
 import Main from './main'
 
 const drawerWidth = 240;
@@ -58,8 +61,6 @@ function ResponsiveDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  console.log(classes.appBar)
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -135,9 +136,25 @@ function ResponsiveDrawer(props) {
           </Drawer>
         </Hidden>
       </nav>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-            <Main summary={props.summary} />
+      <main className={classes.content} style={{minHeight:'600px'}}>
+        {props.load ? 
+        <div>
+           <div className={classes.toolbar} />
+            <Router>
+              <Switch>
+                <Route path='/' exact>
+                  {props.summary && <Main summary={props.summary} />}
+                </Route>
+                <Route path='/country/:id' exact >
+                  <Country text='hello text' />
+                </Route>
+                <Route path='/'>
+                  <NotFound/>
+                </Route>
+              </Switch>
+            </Router>
+        </div> : <div><h1>Loading</h1></div>
+        }
       </main>
     </div>
   );

@@ -18,7 +18,9 @@ const MapContainer = (props) => {
             zoom={2}
             style={mapStyles}
             initialCenter={{lat:47.44, lng:-122.176}}
-        />
+        >
+            <Marker label='nigeria' lat={47.44}  lng={-122.176} />
+        </Map>
     );
 };
 

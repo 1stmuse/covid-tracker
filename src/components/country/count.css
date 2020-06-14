@@ -1,0 +1,11 @@
+
+.info-map{
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+}
+.chart{
+    width: 50%;
+    min-height: 300px;
+    background-color: violet;
+}

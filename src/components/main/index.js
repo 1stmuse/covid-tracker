@@ -1,18 +1,15 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import DropDown from '../dropDown'
 import CountryInfo from '../countryInfo'
 
-const Main = () => {
+const Main = ({summary}) => {
     const country = ['niger', 'ghana', 'eng', 'maritus','france', 'swizz' ]
     return (
         <div>
             <DropDown countries={country} />
             <hr/>
-            <CountryInfo/>
-            <div>
-                
-            </div>
+            <CountryInfo summary={summary} />
             
         </div>
     );
