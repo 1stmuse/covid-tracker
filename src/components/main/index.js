@@ -8,8 +8,10 @@ const Main = () => {
     return (
         <div>
             <DropDown countries={country} />
+            <hr/>
             <CountryInfo/>
             <div>
+                
             </div>
             
         </div>

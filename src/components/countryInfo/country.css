@@ -1,0 +1,14 @@
+
+.map-div{
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+}
+.latest-div{
+    min-height: 200px;
+}
+
+.stats{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minMax(200px, 1fr));
+}

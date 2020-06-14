@@ -15,3 +15,11 @@
 [data-theme="dark"] .site-layout-sub-header-background {
   background: #141414;
 }
+
+.footer{
+  margin-top: 50px;
+  width: 100%;
+  min-height: 100px;
+  background-color: blue;
+  color: #ffffff;
+}
