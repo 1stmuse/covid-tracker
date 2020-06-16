@@ -3,12 +3,12 @@ import React from 'react';
 import './country.css'
 import MapContainer from './map'
 
-const CountryInfo = ({summary}) => {
+const CountryInfo = ({summary, lat, lng, countryName}) => {
     const {todayDeaths, todayCases, todayRecovered}= summary[0]
     return (
         <div>
             <div className='map-div' >
-                <MapContainer/>
+                <MapContainer lat={lat} lng={lng} countryName={countryName} />
             </div>
             <hr/>
             <div>

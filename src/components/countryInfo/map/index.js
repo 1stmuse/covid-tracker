@@ -4,7 +4,8 @@ import React from 'react';
 import {Map, GoogleApiWrapper, Marker} from 'google-maps-react'
 
 const MapContainer = (props) => {
-
+    const {lng, lat, countryName}= props
+    console.log('lat',countryName)
     const mapStyles={
         width:'100%',
         height:'100%',
@@ -17,9 +18,9 @@ const MapContainer = (props) => {
             google={props.google}
             zoom={2}
             style={mapStyles}
-            initialCenter={{lat:47.44, lng:-122.176}}
+            Center={{lat:lat, lng:lng}}
         >
-            <Marker label='nigeria' lat={47.44}  lng={-122.176} />
+            <Marker label={countryName} lat={lat}  lng={lng} />
         </Map>
     );
 };

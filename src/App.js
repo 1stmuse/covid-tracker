@@ -37,15 +37,17 @@ function App() {
    fetch('https://cors-anywhere.herokuapp.com/https://api.ipgeolocationapi.com/geolocate')
     .then(res=> res.json())
     .then(data=>{
-       fetch(`https://corona.lmao.ninja/v2/countries/${ital}?yesterday&strict&query`)
+       fetch(`https://corona.lmao.ninja/v2/countries/${data.name}?yesterday&strict&query`)
        .then(res=>res.json())
        .then(result=>{
         setCount(pre=> [...pre, result])
         setCountName(result.country)
+        setLat(result.countryInfo.lat)
+        setLng(result.countryInfo.long)
         setLoad(true)
          console.log(result)
        })
-       console.log(data)
+       console.log(data.name)
       }
     )
 
@@ -71,6 +73,8 @@ function App() {
           summary={coun.length ? coun:null} 
           load={load}   
           countryName={countName}
+          lat={lat}
+          lng={lng}
         />
         <footer className='footer'>
           <p style={{textAlign:'center', zIndex:1220}}>created by muse </p>

@@ -145,7 +145,13 @@ function ResponsiveDrawer(props) {
            <div className={classes.toolbar} />
               <Switch>
                 <Route path='/' exact>
-                  {props.summary && <Main summary={props.summary}  />}
+                  {props.summary && 
+                    <Main 
+                      summary={props.summary}
+                       lat={props.lat} lng={props.lng} 
+                       countryName ={props.countryName}
+                     />
+                  }
                 </Route>
                 <Route path='/country/:id' exact >
                   <Country text='hello text' />
