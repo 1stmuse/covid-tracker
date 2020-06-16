@@ -34,10 +34,10 @@ function App() {
   // }
   // https://corona.lmao.ninja/v2/countries/Italy?yesterday&strict&query
   useEffect(()=>{
-   fetch('https://cors-anywhere.herokuapp.com/https://api.ipgeolocationapi.com/geolocate')
+   fetch('http://ip-api.com/json/')
     .then(res=> res.json())
     .then(data=>{
-       fetch(`https://corona.lmao.ninja/v2/countries/${data.name}?yesterday&strict&query`)
+       fetch(`https://corona.lmao.ninja/v2/countries/${data.country}?yesterday&strict&query`)
        .then(res=>res.json())
        .then(result=>{
         setCount(pre=> [...pre, result])
@@ -47,7 +47,7 @@ function App() {
         setLoad(true)
          console.log(result)
        })
-       console.log(data.name)
+       console.log(data)
       }
     )
 

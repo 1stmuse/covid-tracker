@@ -18,7 +18,7 @@ const MapContainer = (props) => {
             google={props.google}
             zoom={2}
             style={mapStyles}
-            Center={{lat:lat, lng:lng}}
+            InitialCenter={{lat:lat, lng:lng}}
         >
             <Marker label={countryName} lat={lat}  lng={lng} />
         </Map>
