@@ -16,7 +16,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {withRouter, Route, Link,Switch} from 'react-router-dom'
 import NotFound from './NotFound'
 import Country from '../components/country'
 import Main from './main'
@@ -66,16 +66,19 @@ function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
+
   const drawer = (
     <div>
       <div className={classes.toolbar} style={{background:''}} />
       <Divider />
       <List>
         {['Today', 'Total', 'Summary'].map((text, index) => (
-          <ListItem button key={text}>
+          <Link to={`/country/${text}`} key={index} >
+            <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
-          </ListItem>
+            </ListItem>
+          </Link>
         ))}
       </List>
     </div>
@@ -140,10 +143,9 @@ function ResponsiveDrawer(props) {
         {props.load ? 
         <div>
            <div className={classes.toolbar} />
-            <Router>
               <Switch>
                 <Route path='/' exact>
-                  {props.summary && <Main summary={props.summary} />}
+                  {props.summary && <Main summary={props.summary}  />}
                 </Route>
                 <Route path='/country/:id' exact >
                   <Country text='hello text' />
@@ -152,7 +154,6 @@ function ResponsiveDrawer(props) {
                   <NotFound/>
                 </Route>
               </Switch>
-            </Router>
         </div> : <div><h1>Loading</h1></div>
         }
       </main>
@@ -169,4 +170,4 @@ function ResponsiveDrawer(props) {
 // };
 
 
-export default ResponsiveDrawer;
+export default withRouter(ResponsiveDrawer);

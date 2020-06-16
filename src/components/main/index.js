@@ -4,10 +4,10 @@ import DropDown from '../dropDown'
 import CountryInfo from '../countryInfo'
 
 const Main = ({summary}) => {
-    const country = ['niger', 'ghana', 'eng', 'maritus','france', 'swizz' ]
+    // const country = ['niger', 'ghana', 'eng', 'maritus','france', 'swizz' ]
     return (
         <div>
-            <DropDown countries={country} />
+            <DropDown  />
             <hr/>
             <CountryInfo summary={summary} />
             
