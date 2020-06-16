@@ -34,7 +34,7 @@ function App() {
   // }
   // https://corona.lmao.ninja/v2/countries/Italy?yesterday&strict&query
   useEffect(()=>{
-   fetch('https://cors-anywhere.herokuapp.com/https://api.ipgeolocationapi.com/geolocate')
+   fetch('https://api.ipgeolocationapi.com/geolocate')
     .then(res=> res.json())
     .then(data=>{
        fetch(`https://corona.lmao.ninja/v2/countries/${data.name}?yesterday&strict&query`)
