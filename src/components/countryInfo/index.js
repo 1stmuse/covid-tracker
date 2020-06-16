@@ -4,7 +4,7 @@ import './country.css'
 import MapContainer from './map'
 
 const CountryInfo = ({summary}) => {
-    const {NewDeaths, NewConfirmed, NewRecovered}= summary[0]
+    const {todayDeaths, todayCases, todayRecovered}= summary[0]
     return (
         <div>
             <div className='map-div' >
@@ -13,13 +13,14 @@ const CountryInfo = ({summary}) => {
             <hr/>
             <div>
                 <div className='latest-div'>
-                    <h3>Latest</h3>
+                    <h3>Today</h3>
                     <div className='stats'>
-                        <h4>{`Confirmed Cases: ${NewConfirmed}`} </h4>
-                        <h4>{`Deaths: ${NewDeaths}`}</h4>
-                        <h4>{`Recovered Cases ${NewRecovered}`} </h4>
+                        <h4>{`Confirmed Cases: ${todayCases}`} </h4>
+                        <h4>{`Deaths: ${todayDeaths}`}</h4>
+                        <h4>{`Recovered Cases ${todayRecovered}`} </h4>
                     </div>
                 </div>
+                <button>More Info</button>
                 {/* <hr/>
                 <div>
                     <h3>Total</h3>

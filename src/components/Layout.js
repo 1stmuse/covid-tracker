@@ -103,8 +103,8 @@ function ResponsiveDrawer(props) {
           <Typography variant="h6" noWrap>
             CV-19 Tracker
           </Typography>
-          <Typography>
-            Nigeria
+          <Typography style={{marginLeft:'auto'}}>
+            {props.countryName}
           </Typography>
         </Toolbar>
       </AppBar>

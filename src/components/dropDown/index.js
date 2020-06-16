@@ -2,18 +2,16 @@ import React, {useState, useEffect} from 'react';
 import './drop.css'
 
 const DropDown = (props) => {
-    const [country, setCountry] =useState([])
+    const [count, setCount] =useState([])
     const change = (e)=>{
         console.log(e.target.value)
     }
 
    useEffect(()=>{
-    fetch('https://restcountries.eu/rest/v2/all')
+    fetch('https://corona.lmao.ninja/v2/countries?yesterday&sort')
     .then(res=>res.json())
     .then(data=>{
-        setCountry(prev=> [...prev, ...data])
-        // setLoad(true)
-        console.log(data)
+        setCount(prev=> [...prev, ...data])
     })
    },[])
     return (
@@ -21,8 +19,8 @@ const DropDown = (props) => {
             
             <select onChange={change} >
                 <option>select a country</option>
-                {country.map((count, i)=>(
-                    <option value={count.name} key={i} >{count.name} </option>
+                {count.map((count, i)=>(
+                    <option value={count.country} key={i} >{count.country} </option>
                 ))}
             </select>
         </div>
