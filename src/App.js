@@ -65,7 +65,6 @@ function App() {
 
   }, [])
 
-  // console.log('count from app',coun[0].NewDeaths)
   return (
     <div>
       <Router path='/' exact>
