@@ -17,6 +17,11 @@ function App() {
     method: 'GET',
     redirect: 'follow'
   };
+  const secureOpt={
+    headers:{
+      "Content-Security-Policy": "upgrade-insecure-requests"
+    }
+  }
 
   // const pos =(position)=>{
   //   console.log('position',position)
@@ -34,7 +39,7 @@ function App() {
   // }
   // https://corona.lmao.ninja/v2/countries/Italy?yesterday&strict&query
   useEffect(()=>{
-   fetch('http://ip-api.com/json/')
+   fetch('http://ip-api.com/json/',secureOpt)
     .then(res=> res.json())
     .then(data=>{
        fetch(`https://corona.lmao.ninja/v2/countries/${data.country}?yesterday&strict&query`, requestOptions)
