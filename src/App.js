@@ -37,7 +37,7 @@ function App() {
    fetch('http://ip-api.com/json/')
     .then(res=> res.json())
     .then(data=>{
-       fetch(`https://corona.lmao.ninja/v2/countries/${data.country}?yesterday&strict&query`)
+       fetch(`https://corona.lmao.ninja/v2/countries/${data.country}?yesterday&strict&query`, requestOptions)
        .then(res=>res.json())
        .then(result=>{
         setCount(pre=> [...pre, result])
@@ -50,18 +50,6 @@ function App() {
        console.log(data)
       }
     )
-
-
-
-
-
-  // fetch("https://api.covid19api.com/summary", requestOptions)
-  // .then(response => response.json())
-  // .then(result => {
-  //   setCount(pre=> [...pre, result.Global])
-  //   setLoad(true)
-  // })
-  // .catch(error => console.log('error', error));
 
   }, [])
 

@@ -20,6 +20,7 @@ import {withRouter, Route, Link,Switch} from 'react-router-dom'
 import NotFound from './NotFound'
 import Country from '../components/country'
 import Main from './main'
+import Countries from '../components/countries'
 
 const drawerWidth = 240;
 
@@ -73,7 +74,7 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {['Today', 'Total', 'Summary'].map((text, index) => (
-          <Link to={`/country/${text}`} key={index} >
+          <Link to={`/countries/${text}`} key={index} onClick={()=>setMobileOpen(false)}  >
             <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
@@ -155,6 +156,9 @@ function ResponsiveDrawer(props) {
                 </Route>
                 <Route path='/country/:id' exact >
                   <Country text='hello text' />
+                </Route>
+                <Route path='/countries/:id' exact>
+                  <Countries/>
                 </Route>
                 <Route path='/'>
                   <NotFound/>

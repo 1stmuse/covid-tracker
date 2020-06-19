@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    gap:2rem;
+    width: 100%;
+    /* padding: 3rem 3rem; */
+    /* border: 1px solid blue; */
+    text-align: center;
+}
+
+.grid-item{
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 0.6rem;
+    color: #ffffff;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+    font-weight: bolder;
+    background: #27e16a;
+    /* opacity: 0.5; */
+}
