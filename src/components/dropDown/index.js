@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import {withRouter} from 'react-router-dom'
 import './drop.css'
 
 const DropDown = (props) => {
     const [count, setCount] =useState([])
     const change = (e)=>{
         console.log(e.target.value)
+        props.history.push(`/country/${e.target.value}`)
     }
 
    useEffect(()=>{
@@ -27,4 +29,4 @@ const DropDown = (props) => {
     );
 };
 
-export default DropDown;
+export default withRouter(DropDown);
