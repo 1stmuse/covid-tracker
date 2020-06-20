@@ -164,7 +164,18 @@ function ResponsiveDrawer(props) {
                   <NotFound/>
                 </Route>
               </Switch>
-        </div> : <div><h1>Loading</h1></div>
+        </div> : (
+          <div class="loadingio-spinner-ripple-vd60cwl09kl">
+            <div class="ldio-9mvq2pbmqli">
+             <div>
+               </div>
+               
+               <div>
+
+              </div>
+            </div>
+          </div>
+        )
         }
       </main>
     </div>
