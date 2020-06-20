@@ -39,10 +39,10 @@ function App() {
   // }
   // https://corona.lmao.ninja/v2/countries/Italy?yesterday&strict&query
   useEffect(()=>{
-   fetch('http://ip-api.com/json/',secureOpt)
+   fetch('https://freegeoip.app/json/')
     .then(res=> res.json())
     .then(data=>{
-       fetch(`https://corona.lmao.ninja/v2/countries/${data.country}?yesterday&strict&query`, requestOptions)
+       fetch(`https://corona.lmao.ninja/v2/countries/${data.country_name}?yesterday&strict&query`, requestOptions)
        .then(res=>res.json())
        .then(result=>{
         setCount(pre=> [...pre, result])
