@@ -15,6 +15,11 @@ const Country = (props) => {
         redirect: 'follow'
     };
 
+    const dat = [
+		{ name: 'Group A', value: `Deaths` }, { name: 'Group B', value: 300 },
+		{ name: 'Group C', value: 300 }, { name: 'Group D', value: 200 },
+	];
+
     useEffect(()=>{
         fetch(`https://corona.lmao.ninja/v2/countries/${data}?yesterday&strict&query`, requestOptions)
         .then(res=> res.json())
@@ -41,14 +46,15 @@ const Country = (props) => {
                 : 
                 <div>
                     <div>
-                        <h1>{count[0].country}: {count[0].population} </h1>
+                        <h1>{count[0].country} </h1>
+                        <h1>Population: {count[0].population} </h1>
                     </div>
 
                     <div className='info-map'>
                         <MapContainer  lat={count[0].countryInfo.lat} lng={count[0].countryInfo.long} countryName={count[0].country} />
                     </div>
                     <div className='chart'>
-                        <Chart/>
+                        <Chart data={dat} death={count[0].deaths} case={count[0].cases} recov={count[0].recovered} />
                     </div>
 
                     <div>
