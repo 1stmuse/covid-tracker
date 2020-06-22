@@ -26,13 +26,24 @@ const Countries =(props) =>{
   }, [dep])
 
     const showGrid=()=>{
-        if(grid.length && !load){
+        if(grid.length && !load && data =='Today'){
             return grid[0].map((grid, index)=>(
                 <div key={index} className='grid-item' >
                     <h1>{grid.country} </h1>
-                    <h3>{grid.deaths} </h3>
-                    <h3>{grid.cases} </h3>
-                    <p>{grid.active} </p>
+                    <h2>{data} </h2>
+                    <h3>Deaths {grid.todayDeaths} </h3>
+                    <h3>Cases{grid.todayCases} </h3>
+                    <p>Recovered {grid.active} </p>
+                </div>
+            ))
+        }else{
+            return grid[0].map((grid, index)=>(
+                <div key={index} className='grid-item' >
+                    <h1>{grid.country} </h1>
+                    <h2>{data} </h2>
+                    <h3>Deaths {grid.deaths} </h3>
+                    <h3>Cases{grid.cases} </h3>
+                    <p>Active {grid.active} </p>
                 </div>
             ))
         }
