@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
+    // background:'#27e16a'
   },
   content: {
     flexGrow: 1,
@@ -69,12 +70,12 @@ function ResponsiveDrawer(props) {
 
 
   const drawer = (
-    <div>
-      <div className={classes.toolbar} style={{background:''}} />
+    <div >
+      <div className={classes.toolbar} style={{background:'#27e16a'}} />
       <Divider />
       <List>
-        {['Today', 'Total', 'Summary'].map((text, index) => (
-          <Link to={`/countries/${text}`} key={index} onClick={()=>setMobileOpen(false)}  >
+        {['Today', 'Total'].map((text, index) => (
+          <Link to={`/countries/${text}`} key={index} onClick={()=>setMobileOpen(false)}  style={{textDecoration:'none', color:'black'}} >
             <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
@@ -82,6 +83,11 @@ function ResponsiveDrawer(props) {
           </Link>
         ))}
       </List>
+      <div>
+        <label htmlFor='check' >
+          <input type='checkbox' id='check' />
+        </label>
+      </div>
     </div>
   );
 
@@ -109,7 +115,7 @@ function ResponsiveDrawer(props) {
           </Typography>
         </Toolbar>
       </AppBar>
-      <nav className={classes.drawer} aria-label="mailbox folders">
+      <nav className={classes.drawer} aria-label="mailbox folders" style={{background:'#27e16a'}} >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
@@ -128,7 +134,7 @@ function ResponsiveDrawer(props) {
             {drawer}
           </Drawer>
         </Hidden>
-        <Hidden xsDown implementation="css">
+        <Hidden xsDown implementation="css" >
           <Drawer
             classes={{
               paper: classes.drawerPaper,
@@ -140,7 +146,7 @@ function ResponsiveDrawer(props) {
           </Drawer>
         </Hidden>
       </nav>
-      <main className={classes.content} style={{minHeight:'600px'}}>
+      <main className={classes.content} style={{minHeight:'85vh'}}>
         {props.load ? 
         <div>
            <div className={classes.toolbar} />

@@ -16,11 +16,15 @@
 .grid-item{
     text-align: center;
     width: 200px;
-    height: 200px;
+    /* height: 200px; */
     border-radius: 0.6rem;
     color: #ffffff;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
-    font-weight: bolder;
+    /* font-weight: bolder; */
     background: #27e16a;
     /* opacity: 0.5; */
+}
+
+.grid-item h1{
+    height: 70px;
 }
