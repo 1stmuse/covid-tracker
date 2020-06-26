@@ -1,5 +1,5 @@
 import React from 'react'
-import {Pie} from 'react-chartjs'
+// import {Pie} from 'react-chartjs'
 
 const chartData ={
 	labels:['RED', 'BLUE', 'GREEN']
@@ -11,7 +11,7 @@ const Chart =()=>{
 
 	return(
 		<div>
-			<Pie data={chartData}/>
+			{/* <Pie data={chartData} redraw/> */}
 		</div>
 	)
 }

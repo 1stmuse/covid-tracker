@@ -14,8 +14,6 @@
     "jss-plugin-nested": "^10.3.0",
     "npm": "^6.14.5",
     "react": "^16.13.1",
-    "react-chartjs": "^1.2.0",
-    "react-chartkick": "^0.4.0",
     "react-dom": "^16.13.1",
     "react-loading-skeleton": "^2.1.1",
     "react-router-dom": "^5.2.0",

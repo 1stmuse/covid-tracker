@@ -54,7 +54,7 @@ const Country = (props) => {
                         <MapContainer  lat={count[0].countryInfo.lat} lng={count[0].countryInfo.long} countryName={count[0].country} />
                     </div>
                     <div className='chart'>
-                        <Chart data={dat} death={count[0].deaths} case={count[0].cases} recov={count[0].recovered} />
+                        {/* <Chart data={dat} death={count[0].deaths} case={count[0].cases} recov={count[0].recovered} /> */}
                     </div>
 
                     <div>

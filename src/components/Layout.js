@@ -21,6 +21,7 @@ import NotFound from './NotFound'
 import Country from '../components/country'
 import Main from './main'
 import Countries from '../components/countries'
+import '../App.css'
 
 const drawerWidth = 240;
 
@@ -83,9 +84,10 @@ function ResponsiveDrawer(props) {
           </Link>
         ))}
       </List>
-      <div>
-        <label htmlFor='check' >
-          <input type='checkbox' id='check' />
+      <div className='mode flex'>
+      <input type='checkbox' id='check' className='checkbox'/>
+        <label htmlFor='check' className='lab'>
+          <div className='ball'></div>
         </label>
       </div>
     </div>
