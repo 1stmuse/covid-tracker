@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Contex from './components/Contex'
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Contex>
+     <App />
+  </Contex>
+  ,
   document.getElementById('root')
 );
 

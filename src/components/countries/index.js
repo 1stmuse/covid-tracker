@@ -1,13 +1,17 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {withRouter} from 'react-router-dom'
+import {contextProv} from '../../components/Contex'
 import './grid.css'
 
 const Countries =(props) =>{
     const data = props.history.location.pathname.split('/')[2]
     console.log(data)
-    const [dep, setDep]=useState([])
     const [load, setLoad]=useState(true)
     const [grid, setGrid] = useState([])
+
+    const {lightMode, bright, darkMode} = useContext(contextProv)
+
+    const mode = bright ? lightMode.backgroundColor : darkMode.backgroundColor
 
     const requestOptions = {
         method: 'GET',
@@ -23,12 +27,12 @@ const Countries =(props) =>{
             setLoad(false)
             console.log(data)
         })
-  }, [dep])
+  }, [])
 
     const showGrid=()=>{
         if(grid.length && !load && data =='Today'){
             return grid[0].map((grid, index)=>(
-                <div key={index} className='grid-item' >
+                <div key={index} className='grid-item'  style={{backgroundColor:mode}} >
                     <h1>{grid.country} </h1>
                     <h2>{data} </h2>
                     <h3>Cases: {grid.todayCases} </h3>
@@ -38,7 +42,7 @@ const Countries =(props) =>{
             ))
         }else{
             return grid[0].map((grid, index)=>(
-                <div key={index} className='grid-item' >
+                <div key={index} className='grid-item'  style={{backgroundColor:mode}} >
                     <h1>{grid.country} </h1>
                     <h2>{data} </h2>
                     <h3>Cases: {grid.cases} </h3>

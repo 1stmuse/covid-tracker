@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useContext} from 'react';
 // import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -22,6 +22,7 @@ import Country from '../components/country'
 import Main from './main'
 import Countries from '../components/countries'
 import '../App.css'
+import {contextProv} from '../components/Contex'
 
 const drawerWidth = 240;
 
@@ -64,6 +65,9 @@ function ResponsiveDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const {onChange, lightMode, bright, darkMode} = useContext(contextProv)
+
+  const mode = bright ? lightMode.backgroundColor : darkMode.backgroundColor
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -72,7 +76,7 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div >
-      <div className={classes.toolbar} style={{background:'#27e16a'}} />
+      <div className={classes.toolbar} style={{background:mode}} />
       <Divider />
       <List>
         {['Today', 'Total'].map((text, index) => (
@@ -85,7 +89,7 @@ function ResponsiveDrawer(props) {
         ))}
       </List>
       <div className='mode flex'>
-      <input type='checkbox' id='check' className='checkbox'/>
+      <input type='checkbox' id='check' className='checkbox' onChange={onChange} />
         <label htmlFor='check' className='lab'>
           <div className='ball'></div>
         </label>
@@ -98,7 +102,7 @@ function ResponsiveDrawer(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar} style={{background:'#27e16a'}} >
+      <AppBar position="fixed" className={classes.appBar} style={{background:mode}} >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -117,7 +121,7 @@ function ResponsiveDrawer(props) {
           </Typography>
         </Toolbar>
       </AppBar>
-      <nav className={classes.drawer} aria-label="mailbox folders" style={{background:'#27e16a'}} >
+      <nav className={classes.drawer} aria-label="mailbox folders" style={{background:mode}} >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
@@ -173,8 +177,8 @@ function ResponsiveDrawer(props) {
                 </Route>
               </Switch>
         </div> : (
-          <div class="loadingio-spinner-ripple-vd60cwl09kl">
-            <div class="ldio-9mvq2pbmqli">
+          <div className="loadingio-spinner-ripple-vd60cwl09kl">
+            <div className="ldio-9mvq2pbmqli">
              <div>
                </div>
                

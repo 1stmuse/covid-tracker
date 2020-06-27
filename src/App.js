@@ -1,7 +1,8 @@
 
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import ResponsiveDrawer from './components/Layout.js'
 import {BrowserRouter as Router} from 'react-router-dom'
+import {contextProv} from './components/Contex'
 import './App.css'
 
 
@@ -11,7 +12,11 @@ function App() {
   const [lat, setLat]=useState(0)
   const [lng, setLng]=useState(0)
   const [countName, setCountName]=useState('')
-  // const [country, setCountry] =useState([])
+  
+  const {lightMode, bright, darkMode} = useContext(contextProv)
+
+  const mode = bright ? lightMode.backgroundColor : darkMode.backgroundColor
+
   const ital ='Italy'
   const requestOptions = {
     method: 'GET',
@@ -58,7 +63,6 @@ function App() {
 
   }, [])
 
-  // console.log('count from app',coun[0].NewDeaths)
   return (
     <div>
       <Router path='/' exact>
@@ -69,7 +73,7 @@ function App() {
           lat={lat}
           lng={lng}
         />
-        <footer className='footer'>
+        <footer className='footer' style={{backgroundColor:mode}} >
           <p style={{textAlign:'center', zIndex:1220}}>created by muse </p>
         </footer>
       </Router>
