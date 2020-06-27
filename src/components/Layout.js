@@ -90,7 +90,7 @@ function ResponsiveDrawer(props) {
       <div className='mode flex'>
       <input type='checkbox' id='check' className='checkbox' onChange={onChange} />
         <label htmlFor='check' className='lab'>
-          <div className='ball'></div>
+          <div className='ball' style={{transform:!bright && `translateX(29px)`, background:!bright && `hsl(232,19%,15%)`}} ></div>
         </label>
       </div>
     </div>
