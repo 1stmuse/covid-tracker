@@ -5,7 +5,6 @@ import './drop.css'
 const DropDown = (props) => {
     const [count, setCount] =useState([])
     const change = (e)=>{
-        console.log(e.target.value)
         props.history.push(`/country/${e.target.value}`)
     }
 
@@ -18,7 +17,6 @@ const DropDown = (props) => {
    },[])
     return (
         <div className='drop'>
-            
             <select onChange={change} >
                 <option>select a country</option>
                 {count.map((count, i)=>(

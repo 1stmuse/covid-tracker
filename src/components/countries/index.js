@@ -5,19 +5,15 @@ import './grid.css'
 
 const Countries =(props) =>{
     const data = props.history.location.pathname.split('/')[2]
-    console.log(data)
     const [load, setLoad]=useState(true)
     const [grid, setGrid] = useState([])
-
     const {lightMode, bright, darkMode} = useContext(contextProv)
-
     const mode = bright ? lightMode.backgroundColor : darkMode.backgroundColor
 
     const requestOptions = {
         method: 'GET',
         redirect: 'follow'
     };
-
   
   useEffect(()=>{
     fetch("https://corona.lmao.ninja/v2/countries?yesterday&sort", requestOptions)
@@ -25,7 +21,6 @@ const Countries =(props) =>{
         .then(data=>{
             setGrid((pre)=>[...pre, data])
             setLoad(false)
-            console.log(data)
         })
   }, [])
 

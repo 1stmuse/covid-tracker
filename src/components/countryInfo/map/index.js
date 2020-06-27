@@ -1,17 +1,13 @@
 import React from 'react';
-// import GoogleMapsStyles from './GoogleMapsStyles'
-
 import {Map, GoogleApiWrapper, Marker} from 'google-maps-react'
 
 const MapContainer = (props) => {
     const {lng, lat, countryName}= props
-    console.log('lat',countryName)
     const mapStyles={
         width:'100%',
         height:'100%',
         position:'relative'
     }
-
 
     return (
         <Map

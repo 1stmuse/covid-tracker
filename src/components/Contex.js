@@ -17,7 +17,6 @@ class Contex extends Component {
     }
 
     onChange =()=>{
-        console.log('changed')
         this.setState({
             bright: !this.state.bright
         })

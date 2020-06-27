@@ -1,57 +1,34 @@
-import React from 'react'
-// import {Pie} from 'react-chartjs'
+import React from 'react' ;
+import {Line, Bar} from 'react-chartjs-2' ;
 
-const chartData ={
-	labels:['RED', 'BLUE', 'GREEN']
+const Charts = ({data, country}) => {
+
+    const barChart = (
+        <Bar 
+            data = {{
+                labels: ['Cases', 'Deaths', 'Recovered'],
+                datasets: [{
+                    label: ['Cases', 'Deaths', 'Recovered'],
+                    backgroundColor: [
+                        'rgba(0, 0, 255, .5)',
+                        'rgba(0, 255, 0, .5)',
+                        'rgba(255, 0, 0, .5)',
+                    ],
+                    data: [data.cases, data.death, data.recovered]
+                }]
+            }}
+            options = {{
+                legend: {display: false},
+                title: {display: true, text: `Current state in ${country}`}
+            }}
+        />
+    )
+
+    return (
+        <div className = "charts">
+            {barChart}
+        </div>
+    )
 }
 
-const Chart =()=>{
-
-	
-
-	return(
-		<div>
-			{/* <Pie data={chartData} redraw/> */}
-		</div>
-	)
-}
-
-export default Chart
-
-// import React, {Component} from 'react'
-// import CanvasJSReact from '../../canvasjs.react'
-// var CanvasJSChart = CanvasJSReact.CanvasJSChart;
-
-// class Chart extends Component {
-// 	render() {
-// 		const options = {
-// 			exportEnabled: true,
-// 			animationEnabled: true,
-// 			title: {
-// 				text: "Corona Cases"
-// 			},
-// 			data: [{
-// 				type: "pie",
-// 				startAngle: 75,
-// 				toolTipContent: "{label}: {y}%",
-// 				showInLegend: "true",
-// 				legendText: "{label}",
-// 				indexLabelFontSize: 16,
-// 				indexLabel: "{label} - {y}%",
-// 				dataPoints: [
-// 					{ y: 18, label: "Direct" },
-// 					{ y: 49, label: "Organic Search" },
-// 					{ y: 9, label: "Paid Search" },
-// 					{ y: 5, label: "Referral" },
-// 					{ y: 19, label: "Social" }
-// 				]
-// 			}]
-// 		}
-// 		return (
-//       <div>
-//         <CanvasJSChart options = {options}/>
-//       </div>
-// 		);
-// 	}
-// }
-// export default Chart
+export default Charts
